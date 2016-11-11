@@ -48,14 +48,14 @@ function run_once(cmd)
 end
 
 -- Auto Start
-run_once("gnome-settings-daemon")
 run_once("xset s off")
---run_once("xinput --set-prop 13 \"Synaptics Two-Finger Scrolling\" 1 1")
 run_once("killall -g syndaemon")
 run_once("syndaemon -d -k -t -i 1.5")
+-- run_once("gnome-settings-daemon")
+-- run_once("xinput --set-prop 13 \"Synaptics Two-Finger Scrolling\" 1 1")
 -- run_once("xfce4-volumed")
---run_once("xfce4-power-manager --restart")
---run_once("xset s off")
+-- run_once("xfce4-power-manager --restart")
+-- run_once("xset s off")
 -- run_once("xinput --set-prop 13 \"Synaptics Two-Finger Scrolling\" 1 1")
 
 -- Theme
