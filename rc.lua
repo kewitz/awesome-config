@@ -3,7 +3,6 @@ local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 local lain = require("lain")
-local drop = require("scratchdrop")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
@@ -65,7 +64,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/sputnik/theme.lua")
 
 -- Varibles
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "gnome-terminal --hide-menubar"
 filemanager = "nautilus"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
@@ -155,12 +154,11 @@ netwidget = lain.widgets.net({
 	settings = function()
 		if net_now.state == "up" then net_state = "On"
 		else net_state = "Off" end
-		widget:set_markup(markup(accent, " Net ") .. iface .. " ")
+		widget:set_markup(markup(accent, " Net ") .. net_state .. " ")
 	end
 })
 -- Volume
 volumewidget = lain.widgets.alsa({
-    card = "1",
     settings = function()
         header = " Vol "
         vlevel  = volume_now.level
