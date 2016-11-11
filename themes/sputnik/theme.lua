@@ -38,7 +38,7 @@ else
 	theme.wallpaper = wallpaper4
 end
 
-theme.font          = "Ubuntu Mono 10"
+theme.font          = "Silkscreen 6"
 
 theme.bg_normal     = "#00000088"
 theme.bg_focus      = "#00000000"
