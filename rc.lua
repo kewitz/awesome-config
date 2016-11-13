@@ -256,7 +256,6 @@ for s = 1, screen.count() do
 	right_layout:add(volumewidget)
 	right_layout:add(clockwidget)
 
-
 	-- Now bring it all together (with the tasklist in the middle)
 	local layout = wibox.layout.align.horizontal()
 	layout:set_left(left_layout)
@@ -339,8 +338,6 @@ globalkeys = awful.util.table.join(
 	awful.key({ }, "XF86AudioPlay", function () mediaKeys.sendCmd("PlayPause") end),
 	awful.key({ }, "XF86AudioStop", function () mediaKeys.sendCmd("Stop") end),
 
-
-
 	-- Prompt
 	awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
 	awful.key({ modkey }, "x", function ()
@@ -356,7 +353,7 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
 	awful.key({ modkey }, "f", function (c) c.fullscreen = not c.fullscreen end),
-	awful.key({ modkey, "Shift" }, "c", function (c) c:kill() end),
+	awful.key({ modkey }, "q", function (c) c:kill() end),
 	awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle ),
 	awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
 	awful.key({ modkey }, "o", awful.client.movetoscreen),
@@ -377,27 +374,21 @@ for i = 1, 9 do
 				  function ()
 						local screen = mouse.screen
 						local tag = awful.tag.gettags(screen)[i]
-						if tag then
-						   awful.tag.viewonly(tag)
-						end
+						if tag then awful.tag.viewonly(tag) end
 				  end),
 		-- Toggle tag.
 		awful.key({ modkey, "Control" }, "#" .. i + 9,
 				  function ()
 					  local screen = mouse.screen
 					  local tag = awful.tag.gettags(screen)[i]
-					  if tag then
-						 awful.tag.viewtoggle(tag)
-					  end
+					  if tag then awful.tag.viewtoggle(tag) end
 				  end),
 		-- Move client to tag.
 		awful.key({ modkey, "Shift" }, "#" .. i + 9,
 				  function ()
 					  if client.focus then
 						  local tag = awful.tag.gettags(client.focus.screen)[i]
-						  if tag then
-							  awful.client.movetotag(tag)
-						  end
+						  if tag then awful.client.movetotag(tag) end
 					 end
 				  end),
 		-- Toggle tag.
@@ -405,9 +396,7 @@ for i = 1, 9 do
 				  function ()
 					  if client.focus then
 						  local tag = awful.tag.gettags(client.focus.screen)[i]
-						  if tag then
-							  awful.client.toggletag(tag)
-						  end
+						  if tag then awful.client.toggletag(tag) end
 					  end
 				  end))
 end
@@ -431,18 +420,7 @@ awful.rules.rules = {
 					 focus = awful.client.focus.filter,
 					 raise = true,
 					 keys = clientkeys,
-					 buttons = clientbuttons } },
-	{ rule = { class = "MPlayer" },
-		properties = { floating = true } },
-	{ rule = { class = "pinentry" },
-		properties = { floating = true } },
-	{ rule = { class = "gimp" },
-		properties = { floating = true } },
-	{ rule = { class = "spotify" },
-		properties = { tag = tags[1][4] } },
-	-- Set Firefox to always map on tags number 2 of screen 1.
-	-- { rule = { class = "Firefox" },
-	--   properties = { tag = tags[1][2] } },
+					 buttons = clientbuttons } }
 }
 -- }}}
 
