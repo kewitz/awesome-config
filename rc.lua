@@ -159,19 +159,20 @@ netwidget = lain.widgets.net({
 })
 -- Volume
 volumewidget = lain.widgets.alsa({
+		cmd = "amixer -c 1",
     settings = function()
         header = " Vol "
         vlevel  = volume_now.level
-
-        if volume_now.status == "off" then
-            vlevel = vlevel .. "M "
-        else
-            vlevel = vlevel .. " "
-        end
-
+        if volume_now.status == "off" then vlevel = vlevel .. "M "
+        else vlevel = vlevel .. " " end
         widget:set_markup(markup(accent, header) .. vlevel)
     end
 })
+volumewidget.widget:buttons(awful.util.table.join(
+   awful.button({ }, 1, function () awful.util.spawn("pactl set-sink-mute 1 toggle") volumewidget.update() end),
+   awful.button({ }, 4, function () awful.util.spawn("pactl set-sink-volume 1 +2%") volumewidget.update() end),
+	 awful.button({ }, 5, function () awful.util.spawn("pactl set-sink-volume 1 -2%") volumewidget.update() end)
+))
 
 -- Separators
 spr = wibox.widget.textbox("  ")
