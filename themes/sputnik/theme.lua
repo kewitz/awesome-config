@@ -1,5 +1,4 @@
 -- Sputnik based on Anon.
-
 local awful = require("awful")
 awful.util = require("awful.util")
 
@@ -7,17 +6,8 @@ theme = {}
 
 home          = os.getenv("HOME")
 config        = awful.util.getdir("config")
-shared        = "/usr/share/awesome"
-if not awful.util.file_readable(shared .. "/icons/awesome16.png") then
-  shared      = "/usr/share/local/awesome"
-end
-sharedicons   = shared .. "/icons"
-sharedthemes  = shared .. "/themes"
 themes        = config .. "/themes"
 themename     = "/sputnik"
-if not awful.util.file_readable(themes .. themename .. "/theme.lua") then
-  themes      = sharedthemes
-end
 themedir      = themes .. themename
 
 theme.font          = "Silkscreen 6"
@@ -39,7 +29,7 @@ theme.border_marked = "#91231c"
 theme.taglist_squares       = true
 theme.titlebar_close_button = true
 theme.tasklist_disable_icon = true
-theme.useless_gap_width     = 20
+theme.useless_gap_width     = 10
 
 theme.taglist_squares_sel   = themedir .. "/taglist14/squaref.png"
 theme.taglist_squares_unsel = themedir .. "/taglist14/square.png"
