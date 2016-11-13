@@ -10,8 +10,6 @@ local mediaKeys = require("media_keys")
 
 awful.rules	 = require("awful.rules")
 require("awful.autofocus")
--- Load Debian menu entries
-require("debian.menu")
 
 -- Notify config
 naughty.config.defaults.icon_size = 64
@@ -94,9 +92,7 @@ end
 
 -- Tags
 tags = {
-	-- names = { "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "ο", "π", "ρ", "ς", "σ", "τ", "υ", "φ", "χ", "ψ", "ω" },
-	-- names = { "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ" },
-	names = { "a", "b", "c", "d", "e", "f" },
+	names = { "1", "2", "3", "4", "5", "6" },
 }
 for s = 1, screen.count() do
 	tags[s] = awful.tag(tags.names, s, layouts[1])
@@ -120,9 +116,7 @@ mymainmenu = awful.menu({ items = {
 	{ "display", mydisplaymenu },
 	{ "Lock", "dm-tool lock" }
 }})
-
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-									 menu = mymainmenu })
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
