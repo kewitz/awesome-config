@@ -49,6 +49,7 @@ end
 run_once("xset s off")
 run_once("killall -g syndaemon")
 run_once("syndaemon -d -k -t -i 1.5")
+run_once("killall unagi; sleep 1; unagi &")
 -- run_once("gnome-settings-daemon")
 -- run_once("xinput --set-prop 13 \"Synaptics Two-Finger Scrolling\" 1 1")
 -- run_once("xfce4-volumed")
