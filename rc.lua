@@ -59,7 +59,7 @@ run_once("killall unagi; sleep 1; unagi &")
 
 -- Theme
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/sputnik/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/noir/theme.lua")
 
 -- Varibles
 -- This is used later as the default terminal and editor to run.
