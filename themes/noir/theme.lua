@@ -14,6 +14,7 @@ theme.font          = "Roboto Mono Regular 8"
 theme.wallpaper     = home .. "/.wallpaper"
 
 theme.bg_normal     = "#000000"
+theme.bg_systray    = theme.bg_normal
 theme.bg_focus      = "#000000"
 theme.bg_minimize   = "#000000"
 theme.bg_urgent     = "#aa0000"
@@ -27,9 +28,9 @@ theme.border_focus  = "#FFFFFF"
 theme.border_marked = "#000000"
 
 theme.taglist_squares       = true
-theme.titlebar_close_button = true
+theme.titlebar_close_button = false 
 theme.tasklist_disable_icon = true
-theme.useless_gap_width     = 0
+theme.useless_gap_width     = 20
 
 theme.taglist_squares_sel   = themedir .. "/taglist14/squaref.png"
 theme.taglist_squares_unsel = themedir .. "/taglist14/square.png"
