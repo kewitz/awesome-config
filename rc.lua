@@ -138,10 +138,10 @@ cpuwidget = lain.widgets.cpu({
 batwidget = lain.widgets.bat({
   settings = function()
     bat_perc = bat_now.perc
-    time = bat_now.time
-    -- if bat_now.status == "Discharging" then time = bat_now.time end
+    time = ""
+    if bat_now.status == "Discharging" then time = "(" .. bat_now.time .. ") " end
     if bat_perc == "N/A" then bat_perc = "Plug" end
-    widget:set_markup(markup(accent, " Bat ") .. bat_perc .. "% (" .. time .. ") ")
+    widget:set_markup(markup(accent, " Bat ") .. bat_perc .. "% ".. time)
   end
 })
 -- Net checker
