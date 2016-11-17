@@ -157,7 +157,7 @@ volumewidget = lain.widgets.alsa({
   cmd = "amixer -c 1",
   settings = function()
     header = " Vol "
-    vlevel  = volume_now.level
+    vlevel  = volume_now.level or ""
     if volume_now.status == "off" then vlevel = vlevel .. "M "
     else vlevel = vlevel .. " " end
     widget:set_markup(markup(accent, header) .. vlevel)
