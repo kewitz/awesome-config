@@ -109,7 +109,8 @@ myawesomemenu = {
 mydisplaymenu = {
   { "Notebook", "xrandr --output eDP1 --auto --output HDMI1 --off" },
   { "HDMI", "xrandr --output eDP1 --off --output HDMI1 --auto" },
-  { "Dual", "xrandr --output eDP1 --left-of HDMI1 --auto --output HDMI1 --primary --auto" }
+  { "Dual H.", "xrandr --output eDP1 --left-of HDMI1 --auto --output HDMI1 --primary --auto" },
+  { "Dual V", "xrandr --output eDP1 --below HDMI1 --auto --output HDMI1 --primary --auto" }
 }
 mymainmenu = awful.menu({ items = {
   { "awesome", myawesomemenu, beautiful.awesome_icon },
